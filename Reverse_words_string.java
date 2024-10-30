@@ -1,32 +1,21 @@
 package com.learning.codes;
 
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Reverse_words_string {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String s =" This was java";
-		String str ="";
-		String original="";
-		String real="";
-		StringTokenizer s1 = new StringTokenizer(s);
-		while(s1.hasMoreTokens()) {
-			str = s1.nextToken() +" "+str;
+		System.out.print("Enter the String which you want to reverse :");
+		Scanner sc = new Scanner(System.in);
+		String s =sc.nextLine();
+		String[] words = s.split(" ");
+		String output ="";
+		StringBuilder reverse = new StringBuilder();
+		for(int i =words.length-1; i>=0;i--) {
+			output = new StringBuilder(words[i]).reverse().toString();
+			reverse.append(output.toString()+" ");
 		}
-		str = str.trim();
-		StringTokenizer str1 = new StringTokenizer(str);
-		while(str1.hasMoreTokens()) {
-			char[] ch = str1.nextToken().toCharArray();
-			System.out.println(ch);
-			for(char c:ch) {
-				int length=ch.length;
-				original=c+original;
-			}
-			real=original+" "+real;
-		}
-		
-		System.out.println(real);
+		System.out.println(reverse.toString().trim());
 	}
 
 }
